@@ -22,7 +22,8 @@
         "react",
         "react-hooks",
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "jest"
     ],
     "rules": {
         "react/react-in-jsx-scope": "off",
