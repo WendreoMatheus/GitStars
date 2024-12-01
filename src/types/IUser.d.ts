@@ -1,0 +1,35 @@
+export interface IUser {
+    login:             string;
+    id:                number;
+    nodeID:            string;
+    avatarURL:         string;
+    gravatarID:        string;
+    url:               string;
+    htmlURL:           string;
+    followersURL:      string;
+    followingURL:      string;
+    gistsURL:          string;
+    starredURL:        string;
+    subscriptionsURL:  string;
+    organizationsURL:  string;
+    reposURL:          string;
+    eventsURL:         string;
+    receivedEventsURL: string;
+    type:              string;
+    userViewType:      string;
+    siteAdmin:         boolean;
+    name:              string;
+    company:           null | string;
+    blog:              string;
+    location:          string;
+    email:             null | string;
+    hireable:          null | boolean;
+    bio:               string;
+    twitterUsername:   null | string;
+    publicRepos:       number;
+    publicGists:       number;
+    followers:         number;
+    following:         number;
+    createdAt:         Date;
+    updatedAt:         Date;
+}
