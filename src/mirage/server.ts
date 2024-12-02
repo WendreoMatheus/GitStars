@@ -1,39 +1,41 @@
 import {createServer, Response} from 'miragejs'
-import {User} from './fixtures'
-import { UserSerializer } from './serializers/UserSerializer'
+import {Repos, User} from './fixtures'
 import { AppSchema } from './types'
 import { models } from './models'
+import { serializers } from './serializers'
 
 export function makeServer({environment = "development"} = {}) {
     const server = createServer({
         environment,
         models,
-        serializers: {
-            user: UserSerializer
-        },
+        serializers,
 
         seeds(server) {
             server.create("user", {...User} as object)
-            // Repos.forEach(repo => {
-                // server.create("repo", repo)
-            // })
+            Repos.list.forEach(repo => server.create("repo", {...repo} as object))
         },
 
         routes() {
             this.namespace = "api.github.com"
 
             this.get("/users/:username", (schema: AppSchema, request) => {
-                const username = request.params.username
-                console.log(schema.users.findBy({login: username}))
+                const { username } = request.params
                 const data = schema.users.findBy({login: username})
-                console.log('username anda data', username, data)
                 if(data) {
                     return new Response(200, {}, data)
                 }
 
                 return new Response(404, {}, {msg: 'Usuário não encontrado'})
             })
-            this.get("/users/:username/repos", (schema) => schema.all('repo'))
+            this.get("/users/:username/repos", (schema: AppSchema, request) => {
+                const { username } = request.params
+                const data = schema.repos.where({owner: {login: username}}).models
+                if(data) {
+                    return new Response(200, {}, data)
+                }
+
+                return new Response(404, {}, {msg: 'Repositórios não encontrados'})
+            })
             this.get("/repo/:fullname", (schema, request) => {
                 const fullName = request.params.fullname
                 return schema.findBy("repo", {attrs: {fullName}})
@@ -41,7 +43,6 @@ export function makeServer({environment = "development"} = {}) {
         }
     })
 
-    server.logging = true
-
+    server.logging = false
     return server
 }

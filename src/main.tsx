@@ -1,8 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import App from './App.tsx'
-import { makeServer } from './mirage/server.ts'
+import { makeServer } from './mirage/server.js'
+import AppRouter from './App.router.tsx'
 
 if (process.env.NODE_ENV === "development") {
   makeServer({environment: "development"})
@@ -10,6 +10,6 @@ if (process.env.NODE_ENV === "development") {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AppRouter />
   </StrictMode>,
 )
