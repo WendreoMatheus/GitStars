@@ -1,28 +1,37 @@
-import {createServer, Model} from 'miragejs'
-import {User, Repos} from './fixtures'
-import { IUser, IRepo } from '@/types'
+import {createServer, Response} from 'miragejs'
+import {User} from './fixtures'
+import { UserSerializer } from './serializers/UserSerializer'
+import { AppSchema } from './types'
+import { models } from './models'
 
-export function makeServer({environment = "test"} = {}) {
+export function makeServer({environment = "development"} = {}) {
     const server = createServer({
         environment,
-        models: {
-            user: Model.extend<Partial<IUser>>({}),
-            repo: Model.extend<Partial<IRepo>>({})
+        models,
+        serializers: {
+            user: UserSerializer
         },
 
         seeds(server) {
             server.create("user", {...User} as object)
-            Repos.forEach(repo => {
-                server.create("repo", repo as object)
-            })
+            // Repos.forEach(repo => {
+                // server.create("repo", repo)
+            // })
         },
 
         routes() {
-            this.namespace = "api"
+            this.namespace = "api.github.com"
 
-            this.get("/users/:username", (schema, request) => {
+            this.get("/users/:username", (schema: AppSchema, request) => {
                 const username = request.params.username
-                return schema.findBy("user", { attrs: {username} })
+                console.log(schema.users.findBy({login: username}))
+                const data = schema.users.findBy({login: username})
+                console.log('username anda data', username, data)
+                if(data) {
+                    return new Response(200, {}, data)
+                }
+
+                return new Response(404, {}, {msg: 'Usuário não encontrado'})
             })
             this.get("/users/:username/repos", (schema) => schema.all('repo'))
             this.get("/repo/:fullname", (schema, request) => {
@@ -31,6 +40,8 @@ export function makeServer({environment = "test"} = {}) {
             })
         }
     })
+
+    server.logging = true
 
     return server
 }

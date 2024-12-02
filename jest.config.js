@@ -1,11 +1,12 @@
 export default {
     preset: 'ts-jest',
     collectCoverage: true,
-    collectCoverageFrom: ['src/**/*.ts[x]'],
+    collectCoverageFrom: ['src/**/*'],
     coveragePathIgnorePatterns: [
         "types",
         ".d.ts",
-        "mirage"
+        "mirage/*",
+        "main.tsx"
     ],
     testEnvironment: "jsdom",
     transform: {

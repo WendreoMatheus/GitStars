@@ -1,5 +1,5 @@
-import User from './user.json'
-import Repos from './repos.json'
+import * as User from './user.json'
+import * as Repos from './repos.json'
 
 export {
     User,
