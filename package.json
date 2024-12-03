@@ -31,6 +31,7 @@
     "@hookform/resolvers": "^3.9.1",
     "axios": "^1.7.8",
     "bulma": "^1.0.2",
+    "devicon": "^2.16.0",
     "github-colors": "^2.2.20",
     "identity-obj-proxy": "^3.0.0",
     "jest-transformer-svg": "^2.0.2",

@@ -2193,6 +2193,11 @@ detect-newline@^3.0.0:
   resolved "https://registry.yarnpkg.com/detect-newline/-/detect-newline-3.1.0.tgz#576f5dfc63ae1a192ff192d8ad3af6308991b651"
   integrity sha512-TLz+x/vEXm/Y7P7wn1EJFNLxYpUD4TgMosxY6fAVJUnJMbupHBOncxyWUG9OpTaH9EBD7uFI5LfEgmMOc54DsA==
 
+devicon@^2.16.0:
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/devicon/-/devicon-2.16.0.tgz#67ca4200b44eb74bf35e4be1d63b6d34f6e07de5"
+  integrity sha512-PE5a2HBNeN4av+Iu975OiiWEwS8LJPw5HAvlv0JUHb62jZTdYxTpz4ga+cQyvdtb3x1side2P9Sr1mmOmUkO/g==
+
 diff-dates@^1.0.0:
   version "1.0.14"
   resolved "https://registry.yarnpkg.com/diff-dates/-/diff-dates-1.0.14.tgz#c4de8149cd962c8822e786137d09e3bc39c8dd32"
