@@ -21,10 +21,10 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
 
-     //absolute import
+    //absolute import
     "baseUrl": "./src",
     "paths": {
-      "@/*": ["./*"],
+      "@/*": ["./*"]
     }
   },
   "include": ["src", "./jest.setup.ts"],

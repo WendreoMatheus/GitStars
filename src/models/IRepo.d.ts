@@ -1,28 +1,28 @@
 export interface IRepo {
-    id:                       number;
-    nodeID:                   string;
-    owner:                    IOwner;
-    private:                  string;
-    name:                     string;
-    htmlURL:                  string;
-    description:              string;
-    url:                      string;
-    createdAt:                Date;
-    updatedAt:                Date;
-    homepage:                 null | string;
-    size:                     number;
-    watchersCount:            number;
-    language:                 string;
-    forksCount:               number;
-    openIssuesCount:          number;
-    allowForking:             boolean;
-    visibility:               string;
-    forks:                    number;
-    openIssues:               number;
-    watchers:                 number;
-    subscribersCount:         number;
+  id: number
+  node_id: string
+  owner: IOwner
+  private: string
+  name: string
+  html_url: string
+  description: string
+  url: string
+  created_at: Date
+  updated_at: Date
+  homepage: null | string
+  size: number
+  stargazers_count: number
+  watchers_count: number
+  language: string
+  forks_count: number
+  open_issues_count: number
+  allow_forking: boolean
+  visibility: string
+  forks: number
+  open_issues: number
+  subscribers_count: number
 }
 
 interface IOwner {
-    login: string
+  login: string
 }
