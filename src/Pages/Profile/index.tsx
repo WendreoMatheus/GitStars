@@ -40,7 +40,13 @@ const Profile = () => {
           className="button is-primary"
           onClick={() => changeSort(sort === 'asc' ? 'desc' : 'asc')}
         >
-          Ordenar por Estrelas ({sort === 'asc' ? 'Crescente' : 'Decrescente'})
+          <span className="has-text-white">
+            Ordenar por Estrelas ({sort === 'asc' ? 'Crescente' : 'Decrescente'})
+          </span>
+
+          <span className="icon is-large">
+            <i className={`has-text-white fa-solid fa-sort-${sort === 'asc' ? 'down' : 'up'}`}></i>
+          </span>
         </button>
       </div>
 

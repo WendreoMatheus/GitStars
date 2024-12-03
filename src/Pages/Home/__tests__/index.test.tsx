@@ -31,11 +31,11 @@ describe('Home Component', () => {
       </MemoryRouter>
     )
 
-    fireEvent.change(screen.getByPlaceholderText(/digite seu nome/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Username/i), {
       target: { value: 'WendreoMatheus' },
     })
 
-    fireEvent.click(screen.getByRole('button', { name: /Enviar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Buscar/i }))
 
     await waitFor(() => {
       expect(screen.getByText(/Wendreo Matheus/i)).toBeInTheDocument()
@@ -49,11 +49,11 @@ describe('Home Component', () => {
       </Provider>
     )
 
-    fireEvent.change(screen.getByPlaceholderText(/digite seu nome/i), {
+    fireEvent.change(screen.getByPlaceholderText(/Username/i), {
       target: { value: 'invaliduser' },
     })
 
-    fireEvent.click(screen.getByRole('button', { name: /Enviar/i }))
+    fireEvent.click(screen.getByRole('button', { name: /Buscar/i }))
 
     await waitFor(() => {
       expect(screen.getByText('Usuário não encontrado')).toBeInTheDocument()

@@ -18,8 +18,8 @@ describe('SearchField Component', () => {
       </Provider>
     )
 
-    expect(screen.getByPlaceholderText('Digite seu nome de usuário')).toBeInTheDocument()
-    expect(screen.getByRole('button', { name: 'Enviar' })).toBeInTheDocument()
+    expect(screen.getByPlaceholderText('Username')).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'Buscar' })).toBeInTheDocument()
   })
 
   test('shows validation error for empty input', async () => {
@@ -29,7 +29,7 @@ describe('SearchField Component', () => {
       </Provider>
     )
 
-    fireEvent.click(screen.getByRole('button', { name: 'Enviar' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Buscar' }))
 
     await waitFor(() => {
       expect(
@@ -53,9 +53,9 @@ describe('SearchField Component', () => {
       </Provider>
     )
 
-    const input = screen.getByPlaceholderText('Digite seu nome de usuário')
+    const input = screen.getByPlaceholderText('Username')
     fireEvent.change(input, { target: { value: 'testuser' } })
-    fireEvent.click(screen.getByRole('button', { name: 'Enviar' }))
+    fireEvent.click(screen.getByRole('button', { name: 'Buscar' }))
 
     await waitFor(() => {
       expect(setUsernameMock).toHaveBeenCalledWith('testuser')

@@ -28,7 +28,7 @@ const SearchField = () => {
 
   return (
     <div className="container">
-      <div className="box" style={{ maxWidth: '400px', margin: '50px auto' }}>
+      <div className="box" style={{ maxWidth: '400px', margin: '36px auto' }}>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="field">
             <label className="label">Nome de Usuário</label>
@@ -36,7 +36,7 @@ const SearchField = () => {
               <input
                 className={`input ${errors.username ? 'is-danger' : ''}`}
                 type="text"
-                placeholder="Digite seu nome de usuário"
+                placeholder="Username"
                 {...register('username', { required: 'Nome de usuário é obrigatório' })}
               />
               <span className="icon is-small is-left">
@@ -48,7 +48,10 @@ const SearchField = () => {
           <div className="field">
             <div className="control">
               <button type="submit" className="button is-primary is-fullwidth">
-                Enviar
+                <span className="has-text-white">Buscar</span>
+                <span className="icon is-small">
+                  <i className="has-text-white fa-solid fa-magnifying-glass"></i>
+                </span>
               </button>
             </div>
           </div>

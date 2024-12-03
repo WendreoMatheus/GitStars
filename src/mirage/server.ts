@@ -38,18 +38,20 @@ export function makeServer({ environment = 'development' } = {}) {
         return new Response(404, {}, { msg: 'Repositórios não encontrados' })
       })
       this.get('/repos/:username/:repoName', (schema: AppSchema, request) => {
-          const { username, repoName } = request.params
-          const isTest = process.env.NODE_ENV === "test"
-          const data = isTest ? schema.repos.first() : schema.repos.findBy({full_name: `${username}/${repoName}` })
+        const { username, repoName } = request.params
+        const isTest = process.env.NODE_ENV === 'test'
+        const data = isTest
+          ? schema.repos.first()
+          : schema.repos.findBy({ full_name: `${username}/${repoName}` })
 
-          // Forca 404 em teste para o mock
-          if(isTest && username !== "WendreoMatheus") {
-            return new Response(404, {}, { msg: 'Repositório não encontrados' })
-          }
-          if(data) {
-            return new Response(200, {}, data)
-          }
+        // Forca 404 em teste para o mock
+        if (isTest && username !== 'WendreoMatheus') {
           return new Response(404, {}, { msg: 'Repositório não encontrados' })
+        }
+        if (data) {
+          return new Response(200, {}, data)
+        }
+        return new Response(404, {}, { msg: 'Repositório não encontrados' })
       })
     },
   })

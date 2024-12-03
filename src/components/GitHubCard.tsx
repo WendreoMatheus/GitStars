@@ -1,51 +1,45 @@
-import 'bulma/css/bulma.min.css'
 import { IUser } from '@/models'
 import { NavLink } from 'react-router'
 
-interface GitHubCardProps {
-  userData: IUser
-}
-
-export const GitHubCard: React.FC<GitHubCardProps> = ({ userData }) => {
+export const GitHubCard: React.FC<{ user: IUser }> = ({ user }) => {
   return (
-    <NavLink to={`/profile/${userData.login}`}>
-      <div className="card" style={{ margin: '10px' }}>
+    <NavLink to={`/profile/${user.login}`}>
+      <div className="card" style={{ margin: '10px', maxWidth: '320px', width: '100%' }}>
+        <div className="card-image">
+          <figure className="image is-4by3">
+            <img
+              src={user.avatar_url}
+              alt={user.login}
+              style={{ objectFit: 'cover', width: '100%', height: '200px' }}
+            />
+          </figure>
+        </div>
+
         <div className="card-content">
-          <div className="media">
-            <div className="media-left">
-              <figure className="image is-128x128">
-                <img
-                  src={userData.avatar_url}
-                  alt={`${userData.login}'s avatar`}
-                  style={{ borderRadius: '50%', objectFit: 'cover' }}
-                />
-              </figure>
-            </div>
-            <div className="media-content">
-              <p className="title is-4">{userData.name || userData.login}</p>
-              <p className="subtitle is-6">@{userData.login}</p>
-              <p className="content" style={{ fontSize: '0.9em' }}>
-                {userData.bio || 'Bio não disponível'}
+          <p className="title is-5">{user.name}</p>
+          <p className="subtitle is-6">{user.login}</p>
+          <p className="content" style={{ fontSize: '0.9em' }}>
+            {user.bio || 'No description available.'}
+          </p>
+
+          <div className="columns is-mobile is-vcentered">
+            <div className="column is-half">
+              <p>
+                <strong>Followers:</strong>
               </p>
-              <div className="columns is-mobile">
-                <div className="column is-half">
-                  <p>
-                    <strong>Seguidores:</strong> {userData.followers}
-                  </p>
-                </div>
-                <div className="column is-half">
-                  <p>
-                    <strong>Seguindo:</strong> {userData.following}
-                  </p>
-                </div>
-              </div>
-              {userData.email && (
-                <p>
-                  <strong>Email:</strong> {userData.email}
-                </p>
-              )}
+              <p>{user.followers}</p>
+            </div>
+            <div className="column is-half">
+              <p>
+                <strong>Following:</strong>
+              </p>
+              <p>{user.following}</p>
             </div>
           </div>
+
+          <p>
+            <strong>Email:</strong> {user.email || 'Sem email'}
+          </p>
         </div>
       </div>
     </NavLink>

@@ -13,14 +13,15 @@ const Home = () => {
       <div className="columns is-centered">
         <div className="column is-8">
           <div className="box has-text-centered">
-            <h1 className="title is-3 mb-4">GitStars</h1>
+            <h2 className="title is-4 mb-4">Busque seu desenvolvedor</h2>
             <SearchField />
-
             {error && <div className="notification is-danger is-light mt-3">{error}</div>}
 
             {user && !loading && (
-              <div className="mt-5">
-                <GitHubCard userData={user} />
+              <div className="columns is-centered mt-5">
+                <div className="column is-half">
+                  <GitHubCard user={user} />
+                </div>
               </div>
             )}
 

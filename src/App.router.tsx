@@ -1,6 +1,7 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router'
 import './App.css'
 import 'bulma/css/bulma.min.css'
+import '@fortawesome/fontawesome-free/css/all.min.css'
 import { NavHeader } from '@/components/NavHeader'
 import { Home, Profile, Repo } from '@/Pages'
 
