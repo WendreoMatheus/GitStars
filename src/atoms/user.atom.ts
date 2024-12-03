@@ -22,7 +22,7 @@ export const GET_USER_ATOM = atom(
         set(USER_ERROR_ATOM, undefined)
 
         try {
-        const response = await axios.get(`api.github.com/users/${username}`);
+        const response = await axios.get(`/api.github.com/users/${username}`);
 
         set(USER_ATOM, response.data)
 

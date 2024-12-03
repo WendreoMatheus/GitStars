@@ -3,6 +3,7 @@ import {Repos, User} from './fixtures'
 import { AppSchema } from './types'
 import { models } from './models'
 import { serializers } from './serializers'
+import { IRepo } from '@/models'
 
 export function makeServer({environment = "development"} = {}) {
     const server = createServer({
@@ -29,8 +30,8 @@ export function makeServer({environment = "development"} = {}) {
             })
             this.get("/users/:username/repos", (schema: AppSchema, request) => {
                 const { username } = request.params
-                const data = schema.repos.where({owner: {login: username}}).models
-                if(data) {
+                const data = schema.repos.where((repo: IRepo) => repo.owner.login === username).models
+                if(data.length > 0) {
                     return new Response(200, {}, data)
                 }
 

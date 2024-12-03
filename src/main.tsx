@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { makeServer } from './mirage/server.js'
+import { makeServer } from './mirage/server'
 import AppRouter from './App.router.tsx'
 
 if (process.env.NODE_ENV === "development") {
