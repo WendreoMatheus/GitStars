@@ -1,3 +1,9 @@
+# Firebase
+firebase.json
+.firebaserc
+apphosting.yaml
+.firebase
+
 # Logs
 logs
 *.log
