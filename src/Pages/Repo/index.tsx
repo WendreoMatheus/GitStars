@@ -17,7 +17,7 @@ const RepoDetail = () => {
 
   useEffect(() => {
     fetchRepoDetail({ username, repoName })
-  }, [])
+  }, [username, repoName, fetchRepoDetail])
 
   if (loading) {
     return <Loading />
