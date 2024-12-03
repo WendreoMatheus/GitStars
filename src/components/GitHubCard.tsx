@@ -4,7 +4,7 @@ import { NavLink } from 'react-router'
 export const GitHubCard: React.FC<{ user: IUser }> = ({ user }) => {
   return (
     <NavLink to={`/profile/${user.login}`}>
-      <div className="card" style={{ margin: '10px', maxWidth: '320px', width: '100%' }}>
+      <div className="card" style={{ margin: '10px auto', maxWidth: '320px', width: '100%' }}>
         <div className="card-image">
           <figure className="image is-4by3">
             <img

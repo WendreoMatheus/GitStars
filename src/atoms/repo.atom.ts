@@ -9,10 +9,10 @@ export const REPO_DETAIL_LOADING_ATOM = atom<boolean>(true)
 
 export const FETCH_REPO_DETAIL_ATOM = atom(null, async (_get, set, { username, repoName }) => {
   set(REPO_DETAIL_ATOM, undefined)
+  set(REPO_DETAIL_LOADING_ATOM, true)
   try {
     const response = await api.get(`/repos/${username}/${repoName}`)
     set(REPO_DETAIL_ATOM, response.data)
-    set(REPO_DETAIL_LOADING_ATOM, true)
   } catch (error) {
     if (axios.isAxiosError(error)) {
       const { response } = error as AxiosError<{ msg: string }>

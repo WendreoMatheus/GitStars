@@ -21,7 +21,7 @@ const Profile = () => {
 
   useEffect(() => {
     getRepos(username?.trim())
-  }, [username, getRepos])
+  }, [])
 
   const changeSort = (sort: string) => {
     handleSort(sort)

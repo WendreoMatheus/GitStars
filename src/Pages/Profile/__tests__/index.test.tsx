@@ -33,7 +33,7 @@ describe('Profile Component', () => {
     )
 
     await waitFor(() => {
-      expect(container.querySelectorAll('.repo-item').length).toEqual(28)
+      expect(container.querySelectorAll('.repo-card').length).toEqual(28)
     })
   })
 
