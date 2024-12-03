@@ -7,6 +7,7 @@ export const RepoSerializer = Serializer.extend({
     return {
       id: repo.id,
       node_id: repo.node_id,
+      full_name: repo.full_name,
       owner: repo.owner.login,
       private: repo.private ? 'true' : 'false',
       name: repo.name,

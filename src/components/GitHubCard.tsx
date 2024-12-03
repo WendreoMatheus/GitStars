@@ -15,7 +15,7 @@ export const GitHubCard: React.FC<GitHubCardProps> = ({ userData }) => {
             <div className="media-left">
               <figure className="image is-128x128">
                 <img
-                  src={userData.avatarURL}
+                  src={userData.avatar_url}
                   alt={`${userData.login}'s avatar`}
                   style={{ borderRadius: '50%', objectFit: 'cover' }}
                 />

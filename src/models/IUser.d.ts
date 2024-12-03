@@ -1,6 +1,6 @@
 export interface IUser {
   login: string
-  avatarURL: string
+  avatar_url: string
   name: string
   email: null | string
   bio: string

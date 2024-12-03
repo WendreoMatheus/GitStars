@@ -1,3 +1,4 @@
+import { api } from '@/config/api'
 import { IUser } from '@/models'
 import axios, { AxiosError } from 'axios'
 import { atom } from 'jotai'
@@ -20,7 +21,7 @@ export const GET_USER_ATOM = atom(null, async (get, set) => {
   set(USER_ERROR_ATOM, undefined)
 
   try {
-    const response = await axios.get(`/api.github.com/users/${username}`)
+    const response = await api.get(`/users/${username}`)
 
     set(USER_ATOM, response.data)
   } catch (error) {
@@ -29,10 +30,14 @@ export const GET_USER_ATOM = atom(null, async (get, set) => {
 
       if (response && response.data && response.data.msg) {
         set(USER_ERROR_ATOM, response.data.msg)
-      } else {
+      } else if(response?.status === 404) {
+        set(USER_ERROR_ATOM, 'Usuário não encontrado')
+      }
+      else {
         set(USER_ERROR_ATOM, 'Erro desconhecido ou sem mensagem')
       }
     } else {
+      console.log(error)
       set(USER_ERROR_ATOM, 'Erro desconhecido')
     }
   } finally {

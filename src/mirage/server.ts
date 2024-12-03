@@ -17,7 +17,7 @@ export function makeServer({ environment = 'development' } = {}) {
     },
 
     routes() {
-      this.namespace = 'api.github.com'
+      this.namespace = '/api'
 
       this.get('/users/:username', (schema: AppSchema, request) => {
         const { username } = request.params
@@ -31,7 +31,6 @@ export function makeServer({ environment = 'development' } = {}) {
       this.get('/users/:username/repos', (schema: AppSchema, request) => {
         const { username } = request.params
         const data = schema.repos.where((repo: IRepo) => repo.owner.login === username).models
-        console.log(data)
         if (data.length > 0) {
           return new Response(200, {}, data)
         }

@@ -11,7 +11,7 @@ const AppRouter = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile/:username" element={<Profile />} />
-        <Route path="/repo" element={<Repo />} />
+        <Route path="/repo/:username/:repoName" element={<Repo />} />
       </Routes>
     </Router>
   )

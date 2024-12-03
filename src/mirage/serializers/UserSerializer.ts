@@ -6,7 +6,7 @@ export const UserSerializer = Serializer.extend({
     const user = object.attrs || object
     return {
       login: user.login,
-      avatarURL: user.avatar_url,
+      avatar_url: user.avatar_url,
       name: user.name,
       email: user.email,
       bio: user.bio,

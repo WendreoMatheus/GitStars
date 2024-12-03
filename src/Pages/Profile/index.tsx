@@ -8,7 +8,7 @@ import {
   GET_REPOS_LIST_ATOM,
   SORT_ORDER,
 } from '@/atoms/profile.atom'
-import { Loading, ErrorMessage, RepoCard } from '@/components'
+import { Loading, ErrorMessage, RepoCard, Breadcrumb } from '@/components'
 import { sortRepos } from '@/utils/sortRepos'
 
 const Profile = () => {
@@ -32,6 +32,7 @@ const Profile = () => {
 
   return (
     <div className="container">
+      <Breadcrumb />
       <h1 className="title has-text-centered my-4">Repositórios de {username}</h1>
 
       <div className="buttons is-centered">
