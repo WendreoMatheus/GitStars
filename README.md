@@ -1,50 +1,91 @@
-# React + TypeScript + Vite
+# GitStars
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GitStars** é um projeto moderno baseado em React com TypeScript, focado em excelência de código e experiência do usuário. Esta aplicação utiliza diversas ferramentas e bibliotecas populares para garantir qualidade, performance e boas práticas.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 **Scripts Disponíveis**
 
-## Expanding the ESLint configuration
+No diretório do projeto, você pode executar os seguintes comandos:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### **Desenvolvimento**
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+npm run dev
 ```
+Executa o projeto em modo de desenvolvimento. Abra [http://localhost:5137](http://localhost:5137) para visualizá-lo no navegador.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### **Build**
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+npm run build
 ```
+Compila a aplicação para produção na pasta `dist`. Inclui a transpilação TypeScript.
+
+### **Preview**
+
+```bash
+npm run preview
+```
+Visualiza o build de produção localmente.
+
+### **Lint**
+
+```bash
+npm run lint
+```
+Executa o linter ESLint em todo o código-fonte.
+
+### **Format**
+
+```bash
+npm run format
+```
+Formata o código utilizando o Prettier.
+
+### **Testes**
+
+```bash
+npm run test
+```
+Executa os testes unitários com Jest.
+
+### **Cobertura de Testes**
+
+```bash
+npm run coverage
+```
+Gera um relatório de cobertura dos testes.
+
+---
+
+## 🛠️ **Tecnologias Utilizadas**
+
+### **Frontend**
+- **React**: Framework para construção de interfaces.
+- **React Hook Form**: Gerenciamento de formulários.
+- **Jotai**: Gerenciamento de estado.
+- **React Router**: Navegação entre páginas.
+- **SWR**: Revalidação de dados de forma automática.
+
+### **Estilização**
+- **Bulma**: Framework CSS.
+
+### **Validação**
+- **Zod**: Validação de schemas para formulários e dados.
+
+### **Ferramentas de Desenvolvimento**
+- **TypeScript**: Tipagem estática e verificação de tipos.
+- **Vite**: Ferramenta rápida para desenvolvimento e build.
+- **ESLint**: Identificação de problemas de qualidade no código.
+- **Prettier**: Formatação de código consistente.
+- **Jest**: Testes unitários.
+- **MirageJS**: Simulação de API em desenvolvimento.
+
+### **Gerenciamento de Git**
+- **Husky**: Hooks Git para automatização.
+- **Lint-Staged**: Executa tarefas específicas em arquivos versionados.
+
+---
+
+**Desenvolvido com ❤️ e código limpo!** 🚀

@@ -2,7 +2,7 @@ export default {
   preset: 'ts-jest',
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*'],
-  coveragePathIgnorePatterns: ['types', '.d.ts', 'mirage/*', 'main.tsx'],
+  coveragePathIgnorePatterns: ['types', 'vite-env.d.ts', 'config', 'models/*', 'mirage/*', 'main.tsx'],
   testEnvironment: 'jsdom',
   transform: {
     '^.+\\.tsx?$': 'ts-jest',

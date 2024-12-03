@@ -1,13 +1,13 @@
 import { Route, BrowserRouter as Router, Routes } from 'react-router'
-import Profile from '@/Pages/Profile'
-import Home from '@/Pages/Home'
-import Repo from '@/Pages/Repo'
 import './App.css'
 import 'bulma/css/bulma.min.css'
+import { NavHeader } from '@/components/NavHeader'
+import { Home, Profile, Repo } from '@/Pages'
 
 const AppRouter = () => {
   return (
     <Router>
+      <NavHeader />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/profile/:username" element={<Profile />} />
