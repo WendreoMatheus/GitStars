@@ -1,5 +1,5 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react'
-import SearchField from '@/Pages/Home/SearchField'
+import SearchField from '@/components/SearchField'
 import { Provider } from 'jotai'
 import { USERNAME_ATOM, GET_USER_ATOM } from '@/atoms/user.atom'
 import { createStore } from 'jotai'

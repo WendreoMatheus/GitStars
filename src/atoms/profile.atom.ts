@@ -29,10 +29,9 @@ export const GET_REPOS_LIST_ATOM = atom(null, async (get, set, username) => {
 
       if (response && response.data && response.data.msg) {
         set(REPOS_ERROR_ATOM, response.data.msg)
-      }else if(response?.status === 404) {
+      } else if (response?.status === 404) {
         set(REPOS_ERROR_ATOM, 'Repositórios não encontrados')
-      } 
-      else {
+      } else {
         set(REPOS_ERROR_ATOM, 'Erro desconhecido ou sem mensagem')
       }
     } else {

@@ -1,6 +1,6 @@
 import { USER_ATOM, USER_ERROR_ATOM, USER_LOADING_ATOM } from '@/atoms/user.atom'
 import { useAtomValue } from 'jotai'
-import SearchField from './SearchField'
+import SearchField from '../../components/SearchField'
 import { GitHubCard } from '@/components'
 
 const Home = () => {

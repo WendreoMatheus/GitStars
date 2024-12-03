@@ -30,14 +30,12 @@ export const GET_USER_ATOM = atom(null, async (get, set) => {
 
       if (response && response.data && response.data.msg) {
         set(USER_ERROR_ATOM, response.data.msg)
-      } else if(response?.status === 404) {
+      } else if (response?.status === 404) {
         set(USER_ERROR_ATOM, 'Usuário não encontrado')
-      }
-      else {
+      } else {
         set(USER_ERROR_ATOM, 'Erro desconhecido ou sem mensagem')
       }
     } else {
-      console.log(error)
       set(USER_ERROR_ATOM, 'Erro desconhecido')
     }
   } finally {

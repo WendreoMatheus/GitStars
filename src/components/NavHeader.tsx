@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router';
+import { NavLink } from 'react-router'
 
 export const NavHeader = () => {
   return (
@@ -8,7 +8,6 @@ export const NavHeader = () => {
           <strong className="has-text-white">GITSTARS</strong>
         </NavLink>
       </div>
-
     </nav>
-  );
-};
+  )
+}
